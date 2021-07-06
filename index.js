@@ -1,5 +1,6 @@
 const { StorageEngine, StorageType } = require('./StorageEngine');
 const { StorageFunctionType, StorageFunction, StorageFunctionGroup } = require('./StorageFunction');
+const { KeyFoundError, KeyNotFoundError } = require('./Errors');
 const JsonStorageEngine = require('./JsonStorageEngine');
 
 module.exports = {
@@ -8,5 +9,7 @@ module.exports = {
 	StorageFunction,
 	StorageFunctionType,
 	StorageFunctionGroup,
-	JsonStorageEngine
+	JsonStorageEngine,
+	KeyFoundError,
+	KeyNotFoundError
 };

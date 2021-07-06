@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const { StorageType, StorageEngine } = require('./StorageEngine');
 const { StorageFunction, StorageFunctionType, StorageFunctionGroup } = require('./StorageFunction');
+const { KeyFoundError, KeyNotFoundError } = require('./Errors');
 
 const STORAGE = {
 	FILENAME: 'data.json',
@@ -23,21 +24,21 @@ function JsonGetFunc(resourceId) {
 	return new Promise((resolve, reject) =>
 		(STORAGE.DATA.has(resourceId))
 			? resolve(STORAGE.DATA.get(resourceId))
-			: reject(new Error('Key does not exist!')));
+			: reject(new KeyNotFoundError()));
 }
 
 function JsonPutFunc(resourceId, resourceData) {
 	return new Promise((resolve, reject) =>
 		(!STORAGE.DATA.has(resourceId))
 			? (STORAGE.DATA.set(resourceId, resourceData), STORAGE.DATA.save(resolve, reject), null)
-			: reject(new Error('Key already exists!')));
+			: reject(new KeyFoundError()));
 }
 
 function JsonDelFunc(resourceId) {
 	return new Promise((resolve, reject) =>
 		(STORAGE.DATA.has(resourceId))
 			? (STORAGE.DATA.delete(resourceId), STORAGE.DATA.save(resolve, reject), null)
-			: reject(new Error('Key does not exist!')));
+			: reject(new KeyNotFoundError()));
 }
 
 class JsonStorageEngine extends StorageEngine {
