@@ -24,5 +24,8 @@
   "funding": {
     "type": "patreon",
     "url": "https://patreon.com/tycrek"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0"
   }
 }
