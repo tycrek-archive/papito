@@ -1,6 +1,6 @@
 {
   "name": "@tycrek/ass-storage-engine",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ass storage engine base",
   "main": "storage-engine.js",
   "engines": {
