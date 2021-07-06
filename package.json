@@ -1,6 +1,6 @@
 {
   "name": "@tycrek/ass-storage-engine",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "ass StorageEngine base. This package also comes with a sample StorageEngine using JSON.",
   "main": "index.js",
   "engines": {
