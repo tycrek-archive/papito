@@ -1,6 +1,6 @@
 {
   "name": "ass-storage-engine",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ass storage engine base",
   "main": "storage-engine.js",
   "engines": {
