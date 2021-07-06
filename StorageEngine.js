@@ -18,6 +18,7 @@ class StorageEngine {
 	#getFunc = StorageFunction.NULL;
 	#putFunc = StorageFunction.NULL;
 	#delFunc = StorageFunction.NULL;
+	#hasFunc = StorageFunction.NULL;
 
 	/**
 	 * StorageEngines implement resource storage operations for ass
@@ -32,6 +33,7 @@ class StorageEngine {
 		this.#getFunc = funcGroup.getFunc;
 		this.#putFunc = funcGroup.putFunc;
 		this.#delFunc = funcGroup.delFunc;
+		this.#hasFunc = funcGroup.hasFunc;
 	}
 
 	/**
@@ -60,6 +62,15 @@ class StorageEngine {
 	 */
 	del(resourceId) {
 		return this.#delFunc.func.call(null, resourceId);
+	}
+
+	/**
+	 * Check if a resource exists in the StorageEngine
+	 * @param {String} resourceId The ID to check
+	 * @returns {Promise} A Promise containing a boolean, true if the StorageEngine DOES have the resource, false if it does not
+	 */
+	has(resourceId) {
+		return this.#hasFunc.func.call(null, resourceId);
 	}
 }
 

@@ -76,6 +76,16 @@ function JsonDelFunc(resourceId) {
 			: reject(new KeyNotFoundError()));
 }
 
+/**
+ * Check a resource
+ * (Usually, this would also have a catch/reject, but Map's shouldn't throw on a .has)
+ * @param {String} resourceId Resource to Check
+ * @returns {Promise}
+ */
+function JsonHasFunc(resourceId) {
+	return new Promise((resolve) => resolve(STORAGE.DATA.has(resourceId)));
+}
+
 class JsonStorageEngine extends StorageEngine {
 	/**
 	 * Create a new JsonStorageEngine
@@ -86,7 +96,8 @@ class JsonStorageEngine extends StorageEngine {
 		super('JSON', StorageType.FILE, new StorageFunctionGroup(
 			new StorageFunction(StorageFunctionType.GET, JsonGetFunc),
 			new StorageFunction(StorageFunctionType.PUT, JsonPutFunc),
-			new StorageFunction(StorageFunctionType.DEL, JsonDelFunc)
+			new StorageFunction(StorageFunctionType.DEL, JsonDelFunc),
+			new StorageFunction(StorageFunctionType.HAS, JsonHasFunc)
 		));
 
 		// Load or create file

@@ -13,6 +13,11 @@ class StorageFunctionType {
 	 * DEL operations delete a resource from the StorageEngine
 	 */
 	static DEL = 'delete';
+
+	/**
+	 * HAS operations return a boolean if the StorageEngine contains the resource
+	 */
+	static HAS = 'has';
 }
 
 class StorageFunction {
@@ -38,11 +43,13 @@ class StorageFunctionGroup {
 	 * @param {StorageFunction} getFunc GET StorageFunction
 	 * @param {StorageFunction} putFunc PUT StorageFunction
 	 * @param {StorageFunction} delFunc DEL StorageFunction
+	 * @param {StorageFunction} hasFunc HAS StorageFunction
 	 */
-	constructor(getFunc, putFunc, delFunc) {
+	constructor(getFunc, putFunc, delFunc, hasFunc) {
 		this.getFunc = getFunc;
 		this.putFunc = putFunc;
 		this.delFunc = delFunc;
+		this.hasFunc = hasFunc;
 	}
 }
 
