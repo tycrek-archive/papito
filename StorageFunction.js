@@ -1,10 +1,24 @@
 class StorageFunctionType {
+	/**
+	 * PUT operations add a resource to the StorageEngine
+	 */
 	static PUT = 'put';
+
+	/**
+	 * GET operations return a resource from the StorageEngine
+	 */
 	static GET = 'get';
+
+	/**
+	 * DEL operations delete a resource from the StorageEngine
+	 */
 	static DEL = 'delete';
 }
 
 class StorageFunction {
+	/**
+	 * A blank StorageFunction with no type and no function
+	 */
 	static NULL = new StorageFunction(null, null);
 
 	/**
