@@ -1,0 +1,25 @@
+{
+  "name": "ass-storage-engine",
+  "version": "0.0.1",
+  "description": "ass storage engine base",
+  "main": "storage-engine.js",
+  "engines": {
+    "node": "^14.x.x",
+    "npm": "^7.x.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "github:tycrek/ass-storage-engine",
+  "keywords": [
+    "ass"
+  ],
+  "author": "tycrek <t@tycrek.com> (https://tycrek.com/)",
+  "license": "ISC",
+  "bugs": "https://github.com/tycrek/ass-storage-engine/issues",
+  "homepage": "https://github.com/tycrek/ass-storage-engine#readme",
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/tycrek"
+  }
+}
