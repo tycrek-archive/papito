@@ -2,7 +2,7 @@
   "name": "@tycrek/ass-storage-engine",
   "version": "0.1.2",
   "description": "ass storage engine base",
-  "main": "StorageEngine.js",
+  "main": "index.js",
   "engines": {
     "node": "^14.x.x",
     "npm": "^7.x.x"

@@ -42,5 +42,4 @@ class StorageEngine {
 module.exports = {
 	StorageType,
 	StorageEngine,
-	JsonStorageEngine: require('./JsonStorageEngine')
 };
