@@ -38,8 +38,8 @@ class StorageEngine {
 
 	/**
 	 * Get resource data from the StorageEngine
-	 * @param {String} resourceId The ID of the resource to get data for
-	 * @returns {Promise} A Promise containing a JSON Object representing the resource data
+	 * @param {String=} resourceId The ID of the resource to get data for. If left unspecified, will return the full set of entries
+	 * @returns {Promise} A Promise containing a JSON Object representing the resource data, OR the full set of entries as a [key,value] array
 	 */
 	get(resourceId) {
 		return this.#getFunc.func.call(null, resourceId);

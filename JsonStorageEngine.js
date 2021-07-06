@@ -47,7 +47,7 @@ function save(resolve, reject) {
 function JsonGetFunc(resourceId) {
 	return new Promise((resolve, reject) =>
 		(STORAGE.DATA.has(resourceId))
-			? resolve(STORAGE.DATA.get(resourceId))
+			? resolve(resourceId === undefined ? Array.from(STORAGE.DATA.entries()) : STORAGE.DATA.get(resourceId))
 			: reject(new KeyNotFoundError()));
 }
 
