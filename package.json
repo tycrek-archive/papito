@@ -25,6 +25,9 @@
     "type": "patreon",
     "url": "https://patreon.com/tycrek"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "fs-extra": "^10.0.0"
   }
