@@ -1,18 +1,18 @@
 const { name: EngineName, version: EngineVersion } = require('./package.json');
-const { StorageEngine, StorageType } = require('./StorageEngine');
-const { StorageFunctionType, StorageFunction, StorageFunctionGroup } = require('./StorageFunction');
+const { DataEngine, DataType } = require('./DataEngine');
+const { DataFunctionType, DataFunction, DataFunctionGroup } = require('./DataFunction');
 const { KeyFoundError, KeyNotFoundError } = require('./Errors');
-const JsonStorageEngine = require('./JsonStorageEngine');
+const JsonDataEngine = require('./JsonDataEngine');
 
 module.exports = {
 	EngineName,
 	EngineVersion,
-	StorageEngine,
-	StorageType,
-	StorageFunction,
-	StorageFunctionType,
-	StorageFunctionGroup,
-	JsonStorageEngine,
+	DataEngine,
+	DataType,
+	DataFunction,
+	DataFunctionType,
+	DataFunctionGroup,
+	JsonDataEngine,
 	KeyFoundError,
 	KeyNotFoundError
 };

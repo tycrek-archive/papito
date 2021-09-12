@@ -1,10 +1,10 @@
-const JsonStorageEngine = require('./JsonStorageEngine');
+const JsonDataEngine = require('./JsonDataEngine');
 
 /**
  * Test 1
  */
 function putGetLogDelGetLog() {
-	const se1 = new JsonStorageEngine();
+	const se1 = new JsonDataEngine();
 	se1.put('hi', { name: 'awesome-sauce' })
 		.then(() => se1.get('hi'))
 		.then((d) => console.log(d))
@@ -18,7 +18,7 @@ function putGetLogDelGetLog() {
  * Tests 2,3
  */
 function putFourSizeDelOneSize() {
-	const se2 = new JsonStorageEngine();
+	const se2 = new JsonDataEngine();
 	console.log(se2.toString());
 	se2.put('foo_1', { name: 'FooBar One!' })
 		.then(() => se2.put('foo_2', { name: 'FooBar Two!' }))

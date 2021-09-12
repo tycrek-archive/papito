@@ -1,6 +1,6 @@
-const { StorageFunction, StorageFunctionGroup } = require('./StorageFunction');
+const { DataFunction, DataFunctionGroup } = require('./DataFunction');
 
-class StorageType {
+class DataType {
 	/**
 	 * Used to describe file-based data storage.
 	 * Would be used for things like JSON or YAML
@@ -14,17 +14,17 @@ class StorageType {
 	static DB = 'database';
 }
 
-class StorageEngine {
-	#getFunc = StorageFunction.NULL;
-	#putFunc = StorageFunction.NULL;
-	#delFunc = StorageFunction.NULL;
-	#hasFunc = StorageFunction.NULL;
+class DataEngine {
+	#getFunc = DataFunction.NULL;
+	#putFunc = DataFunction.NULL;
+	#delFunc = DataFunction.NULL;
+	#hasFunc = DataFunction.NULL;
 
 	/**
-	 * StorageEngines implement resource storage operations for ass
-	 * @param {String} name Name of the Storage Engine
-	 * @param {StorageType} type FILE or DB ('file' or 'database')
-	 * @param {StorageFunctionGroup} funcGroup The StorageFunctionGroup to get StorageFunction's from
+	 * DataEngines implement resource storage operations for ass
+	 * @param {String} name Name of the Data Engine
+	 * @param {DataType} type FILE or DB ('file' or 'database')
+	 * @param {DataFunctionGroup} funcGroup The DataFunctionGroup to get DataFunction's from
 	 */
 	constructor(name, type, funcGroup) {
 		this.name = name;
@@ -37,7 +37,7 @@ class StorageEngine {
 	}
 
 	/**
-	 * Get resource data from the StorageEngine
+	 * Get resource data from the DataEngine
 	 * @param {String=} resourceId The ID of the resource to get data for. If left unspecified, will return the full set of entries
 	 * @returns {Promise} A Promise containing a JSON Object representing the resource data, OR the full set of entries as a [key,value] array
 	 */
@@ -46,7 +46,7 @@ class StorageEngine {
 	}
 
 	/**
-	 * Adds a resource to the StorageEngine
+	 * Adds a resource to the DataEngine
 	 * @param {String} resourceId The ID of the resource to add
 	 * @param {Object} resourceData The data for the resource
 	 * @returns {Promise}
@@ -56,7 +56,7 @@ class StorageEngine {
 	}
 
 	/**
-	 * Deletes a resource from the StorageEngine
+	 * Deletes a resource from the DataEngine
 	 * @param {String} resourceId The ID of the resource to delete
 	 * @returns {Promise}
 	 */
@@ -65,9 +65,9 @@ class StorageEngine {
 	}
 
 	/**
-	 * Check if a resource exists in the StorageEngine
+	 * Check if a resource exists in the DataEngine
 	 * @param {String} resourceId The ID to check
-	 * @returns {Promise} A Promise containing a boolean, true if the StorageEngine DOES have the resource, false if it does not
+	 * @returns {Promise} A Promise containing a boolean, true if the DataEngine DOES have the resource, false if it does not
 	 */
 	has(resourceId) {
 		return this.#hasFunc.func.call(null, resourceId);
@@ -75,6 +75,6 @@ class StorageEngine {
 }
 
 module.exports = {
-	StorageType,
-	StorageEngine,
+	DataType,
+	DataEngine,
 };

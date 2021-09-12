@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
-const { StorageType, StorageEngine } = require('./StorageEngine');
-const { StorageFunction, StorageFunctionType, StorageFunctionGroup } = require('./StorageFunction');
+const { DataType, DataEngine } = require('./DataEngine');
+const { DataFunction, DataFunctionType, DataFunctionGroup } = require('./DataFunction');
 const { KeyFoundError, KeyNotFoundError } = require('./Errors');
 
 // In-memory data manager, essentially
@@ -88,18 +88,18 @@ function JsonHasFunc(resourceId) {
 	return new Promise((resolve) => resolve(STORAGE.DATA.has(resourceId)));
 }
 
-class JsonStorageEngine extends StorageEngine {
+class JsonDataEngine extends DataEngine {
 	/**
-	 * Create a new JsonStorageEngine
+	 * Create a new JsonDataEngine
 	 * @param {String} [filename=data.json] Filename for the JSON file. Defaults to 'data.json'
 	 */
 	constructor(filename = 'data.json') {
 		STORAGE.FILENAME = filename;
-		super('JSON', StorageType.FILE, new StorageFunctionGroup(
-			new StorageFunction(StorageFunctionType.GET, JsonGetFunc),
-			new StorageFunction(StorageFunctionType.PUT, JsonPutFunc),
-			new StorageFunction(StorageFunctionType.DEL, JsonDelFunc),
-			new StorageFunction(StorageFunctionType.HAS, JsonHasFunc)
+		super('JSON', DataType.FILE, new DataFunctionGroup(
+			new DataFunction(DataFunctionType.GET, JsonGetFunc),
+			new DataFunction(DataFunctionType.PUT, JsonPutFunc),
+			new DataFunction(DataFunctionType.DEL, JsonDelFunc),
+			new DataFunction(DataFunctionType.HAS, JsonHasFunc)
 		));
 
 		// Load or create file
@@ -113,7 +113,7 @@ class JsonStorageEngine extends StorageEngine {
 	}
 
 	/**
-	 * Number of items this StorageEngine holds
+	 * Number of items this DataEngine holds
 	 */
 	get size() {
 		return STORAGE.DATA.size;
@@ -124,4 +124,4 @@ class JsonStorageEngine extends StorageEngine {
 	}
 }
 
-module.exports = JsonStorageEngine;
+module.exports = JsonDataEngine;
