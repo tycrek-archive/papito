@@ -1,7 +1,7 @@
 {
   "name": "@tycrek/papito",
   "version": "0.3.1",
-  "description": "Papito is a \"data engine\" system.",
+  "description": "A modern, easy-to-use data engine system",
   "main": "index.js",
   "engines": {
     "node": ">=14.x.x",
