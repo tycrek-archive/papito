@@ -14,5 +14,7 @@ module.exports = {
 	DataFunctionGroup,
 	JsonDataEngine,
 	KeyFoundError,
-	KeyNotFoundError
+	KeyNotFoundError,
+
+	_ENGINE_: new JsonDataEngine()
 };
