@@ -16,5 +16,5 @@ module.exports = {
 	KeyFoundError,
 	KeyNotFoundError,
 
-	_ENGINE_: new JsonDataEngine()
+	_ENGINE_: (_oldData) => new JsonDataEngine()
 };
