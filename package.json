@@ -1,6 +1,6 @@
 {
   "name": "@tycrek/papito",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A modern, easy-to-use data engine system",
   "main": "index.js",
   "engines": {
